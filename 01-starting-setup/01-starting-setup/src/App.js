@@ -22,10 +22,18 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+  const addExpenseHandler = (expense) => {
+    console.log('In App js');
+    const expenseData = {
+      ...expense,
+      id: Math.random().toString()
+  };
+  console.log(expenseData);
+  }
   return (
     <div>
-      <NewExpense />
-      <Expenses expenses = {expenses}/>
+      <NewExpense addExpenseHandler={addExpenseHandler}/>
+      <Expenses items = {expenses}/>
     </div>
   );
 }
